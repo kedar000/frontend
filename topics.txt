@@ -1,0 +1,443 @@
+Frontend Revision Roadmap (14 Days)
+
+Day 1–2: Modern JavaScript (ES6+)
+
+1. JavaScript Fundamentals
+
+-   Variables: var, let, const
+-   Scope (Global, Function, Block)
+-   Hoisting
+-   Strict Mode
+-   Data Types (Primitive vs Reference)
+-   Type Coercion
+-   Truthy & Falsy Values
+
+2. Functions
+
+-   Function Declaration
+-   Function Expression
+-   Arrow Functions
+-   Callback Functions
+-   Higher-Order Functions
+-   Closures
+-   Lexical Scope
+-   IIFE
+
+3. Objects
+
+-   Object Literals
+-   Object Methods
+-   this Keyword
+-   Destructuring
+-   Spread Operator (…)
+-   Rest Operator (…)
+-   Optional Chaining (?.)
+-   Nullish Coalescing (??)
+-   Object.keys()
+-   Object.values()
+-   Object.entries()
+-   Object.assign()
+
+4. Arrays
+
+-   map()
+-   filter()
+-   reduce()
+-   find()
+-   findIndex()
+-   some()
+-   every()
+-   forEach()
+-   sort()
+-   reverse()
+-   slice()
+-   splice()
+-   concat()
+-   flat()
+-   flatMap()
+-   includes()
+-   indexOf()
+
+5. Strings
+
+-   Template Literals
+-   split()
+-   replace()
+-   replaceAll()
+-   trim()
+-   slice()
+-   substring()
+-   startsWith()
+-   endsWith()
+-   includes()
+
+6. ES6+ Features
+
+-   Default Parameters
+-   Destructuring
+-   Spread & Rest
+-   Modules (import/export)
+
+7. Asynchronous JavaScript
+
+-   Callbacks
+-   Promises
+-   then/catch/finally
+-   async/await
+-   Fetch API
+-   Error Handling
+
+8. Event Loop
+
+-   Call Stack
+-   Web APIs
+-   Callback Queue
+-   Microtask Queue
+-   Macrotasks
+
+9. DOM & Events
+
+-   DOM Selection
+-   Event Listeners
+-   Event Bubbling
+-   Event Capturing
+-   Event Delegation
+
+10. Advanced Concepts
+
+-   Execution Context
+-   Prototype & Prototype Chain
+-   Memory Management
+-   Garbage Collection
+
+------------------------------------------------------------------------
+
+Day 3: TypeScript
+
+Basics
+
+-   Basic Types
+-   Arrays
+-   Tuples
+-   Enums
+-   Interfaces
+-   Type Aliases
+-   Optional Properties
+
+Advanced Types
+
+-   Union Types
+-   Intersection Types
+-   Literal Types
+-   keyof
+-   typeof
+-   Type Assertions
+-   Type Narrowing
+-   Type Guards
+
+Generics
+
+-   Generic Functions
+-   Generic Interfaces
+-   Generic Constraints
+
+Utility Types
+
+-   Partial
+-   Required
+-   Readonly
+-   Pick
+-   Omit
+-   Record
+-   Exclude
+-   Extract
+
+Modules
+
+-   Import/Export
+-   Declaration Files
+
+------------------------------------------------------------------------
+
+Day 4–6: React + TypeScript
+
+React Fundamentals
+
+-   JSX
+-   Components
+-   Props
+-   State
+-   Event Handling
+-   Conditional Rendering
+-   Lists & Keys
+
+Forms
+
+-   Controlled Components
+-   Uncontrolled Components
+-   Form Validation
+
+Component Communication
+
+-   Parent → Child
+-   Child → Parent
+-   Sibling Components
+
+Hooks
+
+-   useState
+-   useEffect
+-   useRef
+-   useMemo
+-   useCallback
+-   useContext
+-   useReducer
+
+Advanced React
+
+-   Custom Hooks
+-   React.memo
+-   Lazy Loading
+-   Suspense
+-   Code Splitting
+-   Portals
+-   Error Boundaries
+-   Strict Mode
+-   Virtual DOM
+-   Reconciliation
+-   Rendering Lifecycle
+
+Routing
+
+-   React Router
+-   Route Parameters
+-   Nested Routes
+-   Protected Routes
+
+API Integration
+
+-   Fetch
+-   Axios
+-   Authentication
+-   JWT
+-   Refresh Tokens
+
+Performance
+
+-   Memoization
+-   Rendering Optimization
+-   Bundle Optimization
+
+------------------------------------------------------------------------
+
+Day 7: Project Structure
+
+-   Folder Structure
+-   Component Organization
+-   Services
+-   Utilities
+-   Custom Hooks
+-   Environment Variables
+-   State Management Basics
+-   React DevTools
+
+------------------------------------------------------------------------
+
+Day 8: Bootstrap 5
+
+-   Grid System
+-   Containers
+-   Rows & Columns
+-   Flex Utilities
+-   Spacing Utilities
+-   Colors
+-   Typography
+-   Buttons
+-   Cards
+-   Tables
+-   Forms
+-   Navbar
+-   Alerts
+-   Badges
+-   Dropdowns
+-   Collapse
+-   Accordion
+-   Tabs
+-   Modal
+-   Toast
+-   Pagination
+-   Offcanvas
+-   Responsive Utilities
+
+------------------------------------------------------------------------
+
+Day 9: React Bootstrap
+
+-   Container
+-   Row
+-   Col
+-   Button
+-   Card
+-   Navbar
+-   Form
+-   Table
+-   Modal
+-   Alert
+-   Spinner
+-   Badge
+-   Dropdown
+-   Accordion
+-   Tabs
+-   Pagination
+-   Toast
+-   Overlay
+-   Tooltip
+
+------------------------------------------------------------------------
+
+Day 10: Advanced HTML
+
+-   Semantic HTML
+-   Accessibility (ARIA)
+-   Forms
+-   Input Types
+-   Validation
+-   Tables
+-   Audio & Video
+-   SVG
+-   Canvas (Basics)
+-   Meta Tags
+-   SEO Basics
+-   Responsive Images
+-   Lazy Loading Images
+-   localStorage
+-   sessionStorage
+-   Cookies
+
+------------------------------------------------------------------------
+
+Day 11: RxJS
+
+Core Concepts
+
+-   Observable
+-   Observer
+-   Subscription
+-   Subject
+-   BehaviorSubject
+-   ReplaySubject
+-   AsyncSubject
+
+Creation Operators
+
+-   of
+-   from
+-   interval
+-   timer
+-   fromEvent
+
+Pipeable Operators
+
+-   map
+-   filter
+-   tap
+-   switchMap
+-   mergeMap
+-   concatMap
+-   exhaustMap
+-   debounceTime
+-   throttleTime
+-   distinctUntilChanged
+-   take
+-   takeUntil
+-   catchError
+-   retry
+-   finalize
+-   combineLatest
+-   forkJoin
+-   zip
+
+Best Practices
+
+-   Error Handling
+-   Unsubscription
+-   Memory Leak Prevention
+
+------------------------------------------------------------------------
+
+Day 12
+
+Mini Project - Authentication - Routing - Forms - API Calls -
+Bootstrap - RxJS - Local Storage
+
+------------------------------------------------------------------------
+
+Day 13
+
+Company Codebase Review - Folder Structure - Components - Hooks -
+Services - API Layer - State Management - RxJS Usage - Coding Standards
+
+------------------------------------------------------------------------
+
+Day 14
+
+Final Revision - JavaScript - TypeScript - React - Bootstrap - React
+Bootstrap - Advanced HTML - RxJS - Mock Interview - Build a Small
+Application
+
+------------------------------------------------------------------------
+
+High-Priority Topics
+
+JavaScript
+
+-   Closures
+-   Event Loop
+-   Promises
+-   Async/Await
+-   Array Methods
+-   Objects
+-   ES6 Features
+
+TypeScript
+
+-   Interfaces
+-   Generics
+-   Utility Types
+-   Type Guards
+-   Union Types
+
+React
+
+-   Hooks
+-   Component Communication
+-   Routing
+-   Forms
+-   API Calls
+-   Rendering Lifecycle
+
+RxJS
+
+-   Observables
+-   Subjects
+-   switchMap
+-   mergeMap
+-   BehaviorSubject
+-   Error Handling
+
+Bootstrap
+
+-   Grid
+-   Flex
+-   Responsive Design
+-   Forms
+-   Modal
+-   Navbar
+
+HTML
+
+-   Semantic HTML
+-   Accessibility
+-   Forms
+-   SVG
+-   Web Storage
