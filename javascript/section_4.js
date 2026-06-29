@@ -38,7 +38,7 @@ console.log("-----------------------------------------");
 
 // filter()
 
-const even = numbers.filter(num => num % 2 === 0);
+const even = numbers.filter(num => num % 20 === 0);
 
 console.log(even);
 
