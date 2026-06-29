@@ -1,0 +1,6 @@
+How JavaScript Engines Interpret and Execute Code?
+Parsing: When we load a webpage or execute a script, the JavaScript engine first parses the source code to understand its structure. It converts the code into an Abstract Syntax Tree (AST) which is a hierarchical representation of the script.
+Compilation: Now in compilation phase, the engine translates the AST into machine-readable bytecode using JIT (Just-In-Time) compilation. JIT compilation optimizes performance by compiling frequently executed code segments at runtime.
+Execution: Finally, the bytecode or machine code is executed line by line, which produces the output or behavior as defined by the JavaScript code.
+
+Callback queue and microtask queue, Event Loop
