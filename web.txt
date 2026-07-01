@@ -4,3 +4,15 @@ Compilation: Now in compilation phase, the engine translates the AST into machin
 Execution: Finally, the bytecode or machine code is executed line by line, which produces the output or behavior as defined by the JavaScript code.
 
 Callback queue and microtask queue, Event Loop
+
+
+call back hell 
+getUser(userId, (user) => {
+    getOrders(user, (orders) => {
+        processOrders(orders, (processed) => {
+            sendEmail(processed, (confirmation) => {
+                console.log("Order Processed:", confirmation);
+            });
+        });
+    });
+});

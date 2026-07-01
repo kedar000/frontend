@@ -80,7 +80,7 @@ console.log(index);
 // ----------------------------------------------------
 console.log("-----------------------------------------");
 
-// some()
+// some() - boolean
 
 console.log(numbers.some(num => num > 45));
 
@@ -90,7 +90,7 @@ console.log(numbers.some(num => num > 100));
 // ----------------------------------------------------
 console.log("-----------------------------------------");
 
-// every()
+// every() - boolen
 
 console.log(numbers.every(num => num > 5));
 
@@ -112,7 +112,7 @@ numbers.forEach(num => {
 // ----------------------------------------------------
 console.log("-----------------------------------------");
 
-// sort()
+// sort() -> a-b ascending order , b-a - decending order 
 
 const arr = [5,2,8,1,9];
 
