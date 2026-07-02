@@ -22,3 +22,7 @@ getUser(userId, (user) => {
 https://namastedev.com/blog/how-react-works-internally/
 https://medium.com/@ruchivora16/react-how-react-works-under-the-hood-9b621ee69fb5
 https://dev.to/curry/reacts-render-pipeline-a-deep-dive-from-jsx-to-the-screen-e2k
+https://www.uxpin.com/studio/blog/functional-vs-class-components/
+https://medium.com/@supraja_miryala/functional-components-vs-class-components-in-react-e2b8aec3ed64
+
+https://www.freecodecamp.org/news/learn-object-oriented-programming-in-typescript/#heading-how-to-read-this-article
