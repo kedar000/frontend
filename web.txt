@@ -16,3 +16,9 @@ getUser(userId, (user) => {
         });
     });
 });
+1. Stopping Delegation / BubblingMethod: event.stopPropagation()Action: Stops the event from traveling further up (or down in the capturing phase) the DOM tree.Use Case: Perfect for event delegation or nested elements. For example, if you have a button inside a parent <div> and you click the button, stopPropagation() prevents the click event from reaching and triggering the parent <div>'s click listener.2. Immediate StoppingMethod: event.stopImmediatePropagation()Action: Does everything stopPropagation() does, but also prevents any other event listeners attached to the same current element from executing.Use Case: Use this when an element has multiple event listeners for the same event type (e.g., two click listeners), and you want to ensure the current handler is the last one to run.3. Default Stopping (Bonus)Method: event.preventDefault()Action: Stops the browser's default behavior associated with an event (like submitting a form or following a link).Note: This does not stop bubbling. To block both the default action and the bubbling, you must chain both methods inside your function.
+
+
+https://namastedev.com/blog/how-react-works-internally/
+https://medium.com/@ruchivora16/react-how-react-works-under-the-hood-9b621ee69fb5
+https://dev.to/curry/reacts-render-pipeline-a-deep-dive-from-jsx-to-the-screen-e2k

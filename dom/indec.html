@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Update Demo</title>
+    <style>
+        .box {
+            border: 2px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1" class="box">
+    DIV1
+
+    <div id="div2" class="box">
+        DIV2
+
+        <div id="div3" class="box">
+            <span id="counter">Count: 0</span>
+
+            <div id="div4" class="box">
+                DIV4
+
+                <button id="btn">
+                    I should not be recreated
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="update">Update Counter</button>
+
+<script>
+
+const btn = document.getElementById("btn");
+const div4 = document.getElementById("div4");
+
+console.log("Initial Button:", btn);
+console.log("Initial DIV4:", div4);
+
+document.getElementById("update").onclick = () => {
+
+    // Change only the text
+    document.getElementById("counter").textContent =
+        "Count: 100000000000000000000";
+
+    console.log("After Update");
+
+    console.log(
+        "Same button object ?",
+        btn === document.getElementById("btn")
+    );
+
+    console.log(
+        "Same div4 object ?",
+        div4 === document.getElementById("div4")
+    );
+};
+
+document.getElementById("div3").innerHTML = `
+
+    <span id="counter">Count: 1000000000000</span>
+
+    <div id="div4" class="box">
+
+        DIV4
+
+        <button id="btn">
+
+            New Button
+
+        </button>
+
+    </div>
+
+`;
+
+</script>
+
+</body>
+</html>
