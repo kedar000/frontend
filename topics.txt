@@ -191,7 +191,7 @@ Hooks
 -   useMemo
 -   useCallback
 -   useContext
--   useReducer
+-   useReducer -- need to study once again
 
 Advanced React
 

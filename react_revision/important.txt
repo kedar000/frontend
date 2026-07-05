@@ -1,0 +1,41 @@
+flow for this setcounter call 
+function properIncr(){
+        setCount(prev => prev + 1)
+        console.log(`button clicked properInc : ${count}`)
+        setCount(prev => prev + 1)
+        console.log(`after first  setCount properInc : ${count}`)
+    }
+
+Render #5
+
+count = 1
+↓
+User Click
+↓
+setCount(+1)
+Queue:
++1
+↓
+console.log(count)
+1
+↓
+setCount(+1)
+Queue:
++1
++1
+↓
+console.log(count)
+1
+↓
+Function Ends
+↓
+React Processes Queue
+1
+↓
+2
+↓
+3
+↓
+Render #6
+
+count = 3
