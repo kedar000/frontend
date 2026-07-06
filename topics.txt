@@ -169,7 +169,6 @@ React Fundamentals
 -   State
 -   Event Handling
 -   Conditional Rendering
--   Lists & Keys
 
 Forms
 

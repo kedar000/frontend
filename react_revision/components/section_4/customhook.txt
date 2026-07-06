@@ -1,0 +1,47 @@
+function UserProfile() {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        fetchUser().then(setUser);
+    }, []);
+
+    return <div>{user?.name}</div>;
+}
+
+function Dashboard() {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        fetchUser().then(setUser);
+    }, []);
+
+    return <h1>Welcome {user?.name}</h1>;
+}
+
+
+
+
+
+solution : 
+function useUser() {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        fetchUser().then(setUser);
+    }, []);
+
+    return user;
+}
+
+
+function UserProfile() {
+    const user = useUser();
+
+    return <div>{user?.name}</div>;
+}
+
+function Dashboard() {
+    const user = useUser();
+
+    return <h1>Welcome {user?.name}</h1>;
+}
