@@ -17,6 +17,8 @@ import Loading from '../components/lazy/Loading';
 // import Dashboard from '../components/lazy/Dashboard';
 
 const Dashboard = lazy(() => import("../components/lazy/Dashboard"));
+import Fetch from '../components/section_5/Fetch';
+import Axios from '../components/section_5/Axios';
 
 function App() {
   console.log(`log from App class `);
@@ -31,8 +33,8 @@ function App() {
       {/* <WithState /> */}
       {/* <SyntheticEvent /> */}
       {/* <ControlledComponent /> */}
-      {/* <UnControlledComponent />
-      <FormValidation /> */}
+      {/* {/* <UnControlledComponent /> */}
+      {/* <FormValidation /> */} 
       {/* <UseEffectmodule /> */}
       {/* <UseRefModule /> */}
       {/* <UseMemoModule /> */}
@@ -40,7 +42,7 @@ function App() {
       {/* <ProblemuseCallback /> */}
       {/* <UseContextModule / > */}
 
-      <div style={{ padding: "30px" }}>
+      {/* <div style={{ padding: "30px" }}>
         <h1>React Lazy Loading Demo</h1>
 
         <button onClick={() => setShowDashboard(true)}>Load Dashboard</button>
@@ -52,7 +54,10 @@ function App() {
             <Dashboard />
           </Suspense>
         )}
-      </div>
+      </div> */}
+
+      {/* <Fetch /> */}
+      <Axios />
       
     </>
   );

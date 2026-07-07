@@ -11,7 +11,7 @@
 // - Callback Functions
 // - Higher-Order Functions
 // - Closures
-// - Lexical Scope
+// - Lexical Scope 
 // - IIFE
 
 // ----------------------------------------------------
