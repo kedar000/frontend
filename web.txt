@@ -34,3 +34,7 @@ cover later
 https://medium.com/@sagnik.das2/what-is-react-synthetic-events-8d7ad766d821
 https://medium.com/@fa19-bcs-087/component-life-cycle-mounting-unmounting-updating-ca8c82bafbbe. -> mount , unmount , update
 https://dev.to/codeofrelevancy/what-are-portals-in-react-eb  -> portals in react 
+
+
+
+ dummyjson.com/users. -> dummy json users 
