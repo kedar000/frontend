@@ -23,6 +23,11 @@ class AuthService{
             data.refreshToken
         )
 
+        localStorage.setItem(
+            STORAGE_KEYS.USER,
+            JSON.stringify(data)
+        )
+
         return data;
     }
 
@@ -30,6 +35,7 @@ class AuthService{
     logout(){
         localStorage.removeItem(STORAGE_KEYS.ACCESS_TOKEN);
         localStorage.removeItem(STORAGE_KEYS.REFRESH_TOKEN)
+        localStorage.removeItem(STORAGE_KEYS.USER)
 
     }
 
@@ -38,6 +44,16 @@ class AuthService{
         return localStorage.getItem(
             STORAGE_KEYS.ACCESS_TOKEN
         )
+    }
+
+    getCurrentUser() : LoginResponse | null{
+        const user = localStorage.getItem(STORAGE_KEYS.USER)
+
+        if(!user){
+            return null
+        }
+
+        return JSON.parse(user)
     }
 }
 

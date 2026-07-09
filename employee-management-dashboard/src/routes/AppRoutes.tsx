@@ -1,44 +1,51 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// import DashboardLayout from "../layouts/DashboardLayout";
-
-import Dashboard from "../pages/Dashboard/Dashboard";
-import Employees from "../pages/Employees/Employees";
 import Login from "../pages/Login/Login";
-
-import Settings from "../pages/Settings/Settings";
 import NotFound from "../pages/NotFound/NotFound";
-import Profile from "../pages/Profiles/Profile";
 import ProtectedRoute from "./ProtectedRoutes";
 import DashBoardLayout from "../layouts/DashboardLayout";
+import { lazy, Suspense } from "react";
+
+const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
+const Employees = lazy(() => import("../pages/Employees/Employees"));
+const Profile = lazy(() => import("../pages/Profiles/Profile"));
+const Settings = lazy(() => import("../pages/Settings/Settings"));
+const EmployeeDetails = lazy(() => import("../pages/EmployeeDetails/EmployeeDetails"));
 
 function AppRoutes() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      <Suspense fallback={<h2>Loading....</h2>}>
+            <Routes>
+                <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-        <Route path="/login" element={<Login />} />
+                <Route path="/login" element={<Login />} />
 
-        <Route 
-            path="/dashboard" 
-            element={
-                <ProtectedRoute>
-                    <DashBoardLayout />
-                </ProtectedRoute>
-                }
-            >
-          <Route index element={<Dashboard />} />
+                <Route 
+                    path="/dashboard" 
+                    element={
+                        <ProtectedRoute>
+                            <DashBoardLayout />
+                        </ProtectedRoute>
+                        }
+                    >
+                <Route index element={<Dashboard />} />
 
-          <Route path="employees" element={<Employees />} />
+                <Route path="employees" element={<Employees />} />
+                <Route path="employees/:id" element={<EmployeeDetails />} />
 
-          <Route path="profile" element={<Profile />} />
+                <Route path="profile" element={<Profile />} />
 
-          <Route path="settings" element={<Settings />} />
-        </Route>
+                <Route path="settings" element={<Settings />} />
+                </Route>
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+                    
+                {/* </Route> */}
+
+                <Route path="*" element={<NotFound />} />
+            </Routes>      
+      </Suspense>
+
     </BrowserRouter>
   );
 }

@@ -3,31 +3,31 @@ import Navbar from "../components/layouts/Navbar";
 import Sidebar from "../components/layouts/Sidebar";
 import { useState } from "react";
 
-function DashBoardLayout(){
+function DashBoardLayout() {
+  const [count, setCount] = useState(1);
 
-    const [count , setCount] = useState(1);
+  function increase() {
+    console.log("button clicked ");
+    setCount((prev) => prev + 1);
+  }
+  console.log(`Dashboard layout rendered....`);
+  return (
+    <>
+      <>
+    <Navbar />
 
-    function increase(){
-        console.log('button clicked ')
-        setCount((prev)=> prev + 1)
-    }
-    console.log(`Dashboard layout rendered....`)
-    return(
-        <>
+    <div className="d-flex">
 
-            <Navbar />
-            <hr />
+        <Sidebar />
 
-            <Sidebar />
-            <hr />
+        <main className="flex-grow-1 p-4 bg-light min-vh-100">
+            <Outlet />
+        </main>
 
-            <main>
-                <Outlet />
-            </main>
-
-            <button onClick={increase}>Count : {count}</button>
-        </>
-    )
+    </div>
+</>
+    </>
+  );
 }
 
-export default DashBoardLayout
+export default DashBoardLayout;

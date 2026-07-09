@@ -10,7 +10,7 @@ export interface LoginResponse{
     id: string;
     username:string;
     email:string;
-    firstname:string;
-    lastname:string;
+    firstName:string;
+    lastName:string;
     image:string;
 }

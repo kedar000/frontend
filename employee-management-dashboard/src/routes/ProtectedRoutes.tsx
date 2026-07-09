@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import authService from "../services/auth.service"
+import { useAuth } from "../context/AuthContext";
 
 type ProtectedRouteProps = {
     children : React.ReactNode
@@ -7,7 +8,7 @@ type ProtectedRouteProps = {
 function ProtectedRoute({children} : ProtectedRouteProps){
     console.log("Protected route rendered....")
 
-    const isAuthenticated = authService.isAuthenticated();
+    const {isAuthenticated} = useAuth();
 
     if(!isAuthenticated){
         return <Navigate to="/login" replace />
