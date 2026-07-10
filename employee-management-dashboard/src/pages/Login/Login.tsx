@@ -9,7 +9,7 @@ function Login() {
   console.log("Login rendered...");
 
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { updateAuth } = useAuth();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -31,7 +31,11 @@ function Login() {
 
       console.log(response);
 
-      login();
+      // login();
+      updateAuth({
+        type : "SET_USER",
+        playload : response,
+      })
       navigate("/dashboard");
     } catch {
       setError("InValid username or password");

@@ -8,7 +8,11 @@ type ProtectedRouteProps = {
 function ProtectedRoute({children} : ProtectedRouteProps){
     console.log("Protected route rendered....")
 
-    const {isAuthenticated} = useAuth();
+    const { loading , isAuthenticated } = useAuth();
+
+    if(loading){
+        return <h2>Loading....</h2>
+    }
 
     if(!isAuthenticated){
         return <Navigate to="/login" replace />

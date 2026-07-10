@@ -6,7 +6,7 @@ import { useAuth } from "../../context/AuthContext";
 export default function Navbar() {
   console.log("Navbar rendered .....");
 
-  const { logout } = useAuth();
+  const { updateAuth } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,7 +18,10 @@ export default function Navbar() {
   }, []);
 
   function handleLogout() {
-    logout();
+    // logout();
+    updateAuth({
+      type: "CLEAR_USER",
+    })
     navigate("/login", { replace: true });
   }
   return (

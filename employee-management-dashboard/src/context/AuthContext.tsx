@@ -1,13 +1,16 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useReducer, useState, type ReactNode } from "react";
 import type { LoginResponse } from "../types/auth.types"
 import authService from "../services/auth.service";
+import { authReducer } from "./authReducer";
+import type { AuthAction } from "./authTypes";
 
 
 type AuthContextType = {
     user : LoginResponse | null;
+    loading: boolean
     isAuthenticated : boolean;
-    login : ()=> void;
-    logout : ()=>void;
+    
+    updateAuth: ( action:AuthAction ) => void
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -17,32 +20,70 @@ type AuthProviderProps = {
 }
 
 export function AuthProvider({children } : AuthProviderProps){
-    const [user , setUser] = useState<LoginResponse | null>(null)
+    const [state, dispatch] = useReducer(authReducer, {
+    user: null,
+    loading: true
+});
 
     useEffect(()=>{
-        setUser(authService.getCurrentUser())
+        async function initialAuth(){
+            try{
+                if(!authService.getAccessToken()){
+                    dispatch({
+                        type : "SET_LOADING",
+                        playload: false
+                    })
+
+                    return;
+                }
+
+                const user = await authService.getCurrentUser();
+
+                dispatch({
+                    type:"SET_USER",
+                    playload: user
+                })
+            }catch{
+                authService.logout();
+                dispatch({
+                    type : "CLEAR_USER"
+                })
+            }
+        }
+
+        initialAuth()
     } ,[]);
 
-    function login(){
-        setUser(authService.getCurrentUser())
-    }
+    // function login(){
+    //     setUser(authService.getCurrentUser())
+    // }
 
-    function logout(){
-        authService.logout();
-        setUser(null);
-    }
+    // function logout(){
+    //     authService.logout();
+    //     setUser(null);
+    // }
 
+    function updateAuth(action : AuthAction){
+        if(action.type == 'CLEAR_USER'){
+
+            authService.logout()
+        }
+
+        dispatch(action)
+
+    }
     return (
         <AuthContext.Provider
             value={{
-                user ,
-                isAuthenticated: user !== null,
-                login,
-                logout
+                user:state.user,
+                isAuthenticated : state.user !== null,
+                loading : state.loading,
+                updateAuth
             }}>
                 {children}
             </AuthContext.Provider>
     )
+
 }
 
 export function useAuth(){

@@ -3,30 +3,58 @@ import type { Employee } from "../../types/employee.types";
 import employeeService from "../../services/employee.service";
 import { useNavigate } from "react-router-dom";
 import { Employeetable } from "../../components/employee/EmployeeTable";
-import EmployeeSearch from "../../components/employee/EmployeeSearch";
+
 import { useEmployee } from "../../hooks/useEmployees";
+import SearchInput from "../../components/common/SearchInput";
 
 function Employees() {
   console.log(`employee rendered ....`);
 
   const { employees, loading, error } = useEmployee();
   const [search, setSearch] = useState("");
+  const [displayEmployees, setDisplayEmployees] = useState<Employee[]>([]);
   const navigate = useNavigate();
 
   function handleViewEmployee(id: number) {
     navigate(`/dashboard/employees/${id}`);
   }
 
-  const filteredEmployees = useMemo(() => {
-    return employees.filter((emp) => {
-      const fullName = `${emp.firstName} ${emp.lastName}`.toLowerCase();
-      return (
-        fullName.includes(search.toLowerCase()) ||
-        emp.email.toLowerCase().includes(search.toLowerCase()) ||
-        emp.company.department.toLowerCase().includes(search.toLowerCase())
-      );
-    });
-  }, [employees, search]);
+  // const filteredEmployees = useMemo(() => {
+  //   return employees.filter((emp) => {
+  //     const fullName = `${emp.firstName} ${emp.lastName}`.toLowerCase();
+  //     return (
+  //       fullName.includes(search.toLowerCase()) ||
+  //       emp.email.toLowerCase().includes(search.toLowerCase()) ||
+  //       emp.company.department.toLowerCase().includes(search.toLowerCase())
+  //     );
+  //   });
+  // }, [employees, search]);
+  useEffect(() => {
+    if (employees) {
+      setDisplayEmployees(employees);
+    }
+  }, [employees]);
+
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      try {
+        if (search.trim() === "") {
+          setDisplayEmployees(employees);
+          return;
+        }
+
+        const response = await employeeService.searchEmployees(search);
+
+        setDisplayEmployees(response);
+      } catch (error) {
+        console.error(error);
+      }
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [search, employees]);
 
   if (loading) {
     return <h2>Loading.....</h2>;
@@ -45,16 +73,22 @@ function Employees() {
         </button> */}
       </div>
 
-      <EmployeeSearch
+      {/* <EmployeeSearch
         value={search}
         onChange={setSearch}
         onClear={() => setSearch("")}
-      />
+      /> */}
+
+      <SearchInput
+            value={search}
+            onChange={setSearch}
+            onClear={()=>setSearch("")}
+            placeholder="Search Employees" />
 
       <div className="mt-4">
-        {filteredEmployees.length > 0 ? (
+        {displayEmployees.length > 0 ? (
           <Employeetable
-            employees={filteredEmployees}
+            employees={displayEmployees}
             onView={handleViewEmployee}
           />
         ) : (
