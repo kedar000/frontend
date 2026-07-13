@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
-import authService from "../services/auth.service"
 import { useAuth } from "../context/AuthContext";
+import { useEffect } from "react";
 
 type ProtectedRouteProps = {
     children : React.ReactNode
@@ -8,13 +8,24 @@ type ProtectedRouteProps = {
 function ProtectedRoute({children} : ProtectedRouteProps){
     console.log("Protected route rendered....")
 
-    const { loading , isAuthenticated } = useAuth();
+    const {
+        user , 
+        loading,
+        initialized,
+        initializeAuth
+    } = useAuth()
 
-    if(loading){
+    useEffect(()=>{
+        if(!initialized){
+            initializeAuth()
+        }
+    },[initialized , initializeAuth])
+
+    if(loading || !initialized){
         return <h2>Loading....</h2>
     }
 
-    if(!isAuthenticated){
+    if(!user){
         return <Navigate to="/login" replace />
     }
 

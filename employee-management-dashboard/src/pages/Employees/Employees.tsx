@@ -6,6 +6,7 @@ import { Employeetable } from "../../components/employee/EmployeeTable";
 
 import { useEmployee } from "../../hooks/useEmployees";
 import SearchInput from "../../components/common/SearchInput";
+import { useDebounce } from "../../hooks/useDebounce";
 
 function Employees() {
   console.log(`employee rendered ....`);
@@ -13,48 +14,61 @@ function Employees() {
   const { employees, loading, error } = useEmployee();
   const [search, setSearch] = useState("");
   const [displayEmployees, setDisplayEmployees] = useState<Employee[]>([]);
+
+  const debouncedSearch = useDebounce(search , 500);
   const navigate = useNavigate();
 
   function handleViewEmployee(id: number) {
     navigate(`/dashboard/employees/${id}`);
   }
 
-  // const filteredEmployees = useMemo(() => {
-  //   return employees.filter((emp) => {
-  //     const fullName = `${emp.firstName} ${emp.lastName}`.toLowerCase();
-  //     return (
-  //       fullName.includes(search.toLowerCase()) ||
-  //       emp.email.toLowerCase().includes(search.toLowerCase()) ||
-  //       emp.company.department.toLowerCase().includes(search.toLowerCase())
-  //     );
-  //   });
-  // }, [employees, search]);
+
   useEffect(() => {
     if (employees) {
       setDisplayEmployees(employees);
     }
   }, [employees]);
 
-  useEffect(() => {
-    const timer = setTimeout(async () => {
-      try {
-        if (search.trim() === "") {
+  // useEffect(() => {
+  //   const timer = setTimeout(async () => {
+  //     try {
+  //       if (search.trim() === "") {
+  //         setDisplayEmployees(employees);
+  //         return;
+  //       }
+
+  //       const response = await employeeService.searchEmployees(search);
+
+  //       setDisplayEmployees(response);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }, 500);
+
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [search, employees]);
+
+  useEffect(()=>{
+    async function searchEmployees(){
+      try{
+        if(debouncedSearch.trim()===""){
           setDisplayEmployees(employees);
           return;
         }
-
-        const response = await employeeService.searchEmployees(search);
+        
+        const response = await employeeService.searchEmployees(debouncedSearch)
 
         setDisplayEmployees(response);
-      } catch (error) {
-        console.error(error);
+      
+      }catch(error){
+        console.log(error)
       }
-    }, 500);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [search, employees]);
+    }
+    searchEmployees();
+  
+  } , [debouncedSearch , employees])
 
   if (loading) {
     return <h2>Loading.....</h2>;

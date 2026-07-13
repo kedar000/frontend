@@ -8,13 +8,15 @@ export function authReducer(
             return {
                 ...state,
                 user:action.playload,
-                loading:false
+                loading:false,
+                initialized : true
             };
         case "CLEAR_USER":
             return {
                 ...state,
                 user:null,
-                loading:false
+                loading:false,
+                initialized : true
             }
         case "SET_LOADING":
             return {

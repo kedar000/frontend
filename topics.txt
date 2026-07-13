@@ -190,7 +190,7 @@ Hooks
 -   useMemo
 -   useCallback
 -   useContext
--   useReducer -- need to study once again
+-   useReducer
 
 Advanced React
 
@@ -356,11 +356,6 @@ Pipeable Operators
 -   forkJoin
 -   zip
 
-Best Practices
-
--   Error Handling
--   Unsubscription
--   Memory Leak Prevention
 
 ------------------------------------------------------------------------
 

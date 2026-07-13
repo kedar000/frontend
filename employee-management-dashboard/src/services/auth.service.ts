@@ -33,6 +33,7 @@ class AuthService {
   }
 
   async getCurrentUser(): Promise<LoginResponse> {
+    console.log("GET /auth/me 304")
     const response = await apiClient.get<LoginResponse>(API.AUTH.ME)
 
     return response.data;

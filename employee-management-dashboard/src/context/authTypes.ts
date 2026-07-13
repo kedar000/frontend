@@ -2,7 +2,8 @@ import type { LoginResponse } from "../types/auth.types"
 
 export type AuthState = {
     user : LoginResponse | null,
-    loading : boolean
+    loading : boolean;
+    initialized : boolean;
 
 }
 
