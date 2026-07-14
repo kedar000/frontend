@@ -3,8 +3,7 @@ import type { LoginResponse } from "../types/auth.types"
 export type AuthState = {
     user : LoginResponse | null,
     loading : boolean;
-    initialized : boolean;
-
+    initialized : boolean
 }
 
 export type AuthAction = 
@@ -17,6 +16,10 @@ export type AuthAction =
     }
     | {
         type:"SET_LOADING",
+        playload : boolean
+    }
+    | {
+        type : "SET_INITIALIZED";
         playload : boolean
     }
 

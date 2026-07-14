@@ -9,9 +9,7 @@ import type { AuthAction } from "./authTypes";
 type AuthContextType = {
     user : LoginResponse | null;
     loading: boolean;
-    initialized : boolean
-    isAuthenticated : boolean;
-    initializeAuth : ()=> Promise<void>;
+    initialized : boolean;
     updateAuth: ( action:AuthAction ) => void
 }
 
@@ -25,10 +23,11 @@ export function AuthProvider({children } : AuthProviderProps){
     const [state, dispatch] = useReducer(authReducer, {
     user: null,
     loading: false,
-    initialized : false
+    initialized:false
+
 });
 
-    console.log(`AuthProvider rendered`)
+    console.log(`AuthProvider rendered `)
 
     function updateAuth(action : AuthAction){
         if(action.type == 'CLEAR_USER'){
@@ -43,52 +42,15 @@ export function AuthProvider({children } : AuthProviderProps){
         <AuthContext.Provider
             value={{
                 user:state.user,
-                isAuthenticated : state.user !== null,
-                initialized : state.initialized,
                 loading : state.loading,
-                initializeAuth,
+                initialized : state.initialized,
                 updateAuth
             }}>
                 {children}
             </AuthContext.Provider>
     )
 
-    async function initializeAuth(){
-        dispatch({
-            type : "SET_LOADING",
-            playload : true
-        })
-        try{
-            const token = authService.getAccessToken();
-
-            if(!token){
-                dispatch({
-                    type : "CLEAR_USER"
-                })
-
-                return ;
-
-            }
-
-            const user = await authService.getCurrentUser()
-
-            dispatch({
-                type : "SET_USER",
-                playload : user
-            });
-        }catch{
-            authService.logout();
-
-            dispatch({
-                type : "CLEAR_USER"
-            })
-        } finally{
-            dispatch({
-                type : "SET_LOADING",
-                playload : false
-            })
-        }
-    }
+    
 
 }
 
