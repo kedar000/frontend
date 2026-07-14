@@ -5,9 +5,7 @@ function Counter() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const counter$ = interval(1000).pipe(
-        take(10)
-    );
+    const counter$ = interval(1000).pipe(take(10));
 
     const subscription = counter$.subscribe({
       next: (value) => {
@@ -29,9 +27,23 @@ function Counter() {
   }, []);
 
   return (
-    <div>
-      <h2>Counter</h2>
-      <h1>{count}</h1>
+    <div className="card shadow-sm h-100 border-0">
+      <div className="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h5 className="mb-0">Counter</h5>
+
+      </div>
+
+      <div className="card-body d-flex flex-column justify-content-center align-items-center">
+        
+
+        <h1 className="display-1 fw-bold text-body">
+          {count}
+        </h1>
+      </div>
+
+      <div className="card-footer text-muted text-center">
+        Stops automatically after 10 emissions
+      </div>
     </div>
   );
 }

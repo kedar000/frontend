@@ -1,53 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-import Counter from './components/Counter'
-import EventLog from './components/EventLog'
-import Login from './components/Login'
-import SearchBox from './components/SearchBox'
-import Stopwatch from './components/Stopwatch'
-import { Dashboard } from './components/Dashboard'
+import "./App.css";
+import Counter from "./components/Counter";
+import EventLog from "./components/EventLog";
+import Login from "./components/Login";
+import SearchBox from "./components/SearchBox";
+import Stopwatch from "./components/Stopwatch";
+import UserInfo from "./components/UserInfo";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div
+    <div className="container py-5">
 
-      style={{
+      <div className="row g-4">
 
-        padding: "30px",
+        <div className="col-12 col-md-6">
+          <SearchBox />
+        </div>
 
-        display: "grid",
+        <div className="col-12 col-md-6">
+          <Counter />
+        </div>
 
-        gap: "20px",
+        <div className="col-12 col-md-6">
+          <Login />
+        </div>
 
-        maxWidth: "800px",
+        <div className="col-12 col-md-6">
+          <UserInfo />
+        </div>
 
-        margin: "0 auto",
+        <div className="col-12 col-md-6">
+          <Stopwatch />
+        </div>
 
-      }}
+        <div className="col-12 col-md-6">
+          <EventLog />
+        </div>
 
-    >
-
-      <SearchBox />
-
-      <Counter />
-
-      <Stopwatch />
-
-      <Login />
-
-      <EventLog />
-
-      <Dashboard />
-
+      </div>
     </div>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;
