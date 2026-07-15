@@ -1,122 +1,176 @@
-========================================
-1xx - Informational
-========================================
+HTTP STATUS CODES EXPLAINED
 
-100 Continue
-101 Switching Protocols
-102 Processing (WebDAV)
-103 Early Hints
+HTTP status codes are 3-digit numbers returned by a server to indicate
+the outcome of an HTTP request.
 
-========================================
-2xx - Success
-========================================
+================================================== 1xx - INFORMATIONAL
+==================================================
 
-200 OK
-201 Created
-202 Accepted
-203 Non-Authoritative Information
-204 No Content
-205 Reset Content
-206 Partial Content
-207 Multi-Status (WebDAV)
-208 Already Reported (WebDAV)
-226 IM Used
+100 Continue - The server has received the initial part of the request
+and asks the client to continue sending the rest.
 
-========================================
-3xx - Redirection
-========================================
+101 Switching Protocols - The server agrees to switch protocols (for
+example, HTTP to WebSocket).
 
-300 Multiple Choices
-301 Moved Permanently
-302 Found
-303 See Other
-304 Not Modified
-305 Use Proxy (Deprecated)
-306 Switch Proxy (Unused)
-307 Temporary Redirect
-308 Permanent Redirect
+102 Processing (WebDAV) - The server is processing the request but has
+not completed it yet.
 
-========================================
-4xx - Client Errors
-========================================
+103 Early Hints - The server sends preload hints (such as CSS or fonts)
+before the final response.
 
-400 Bad Request
-401 Unauthorized
-402 Payment Required
-403 Forbidden
-404 Not Found
-405 Method Not Allowed
-406 Not Acceptable
-407 Proxy Authentication Required
-408 Request Timeout
-409 Conflict
-410 Gone
-411 Length Required
-412 Precondition Failed
-413 Payload Too Large
-414 URI Too Long
-415 Unsupported Media Type
-416 Range Not Satisfiable
-417 Expectation Failed
-418 I'm a Teapot
-421 Misdirected Request
-422 Unprocessable Entity
-423 Locked (WebDAV)
-424 Failed Dependency (WebDAV)
-425 Too Early
-426 Upgrade Required
-428 Precondition Required
-429 Too Many Requests
-431 Request Header Fields Too Large
-451 Unavailable For Legal Reasons
+================================================== 2xx - SUCCESS
+==================================================
 
-========================================
-5xx - Server Errors
-========================================
+200 OK - The request completed successfully.
 
-500 Internal Server Error
-501 Not Implemented
-502 Bad Gateway
-503 Service Unavailable
-504 Gateway Timeout
-505 HTTP Version Not Supported
-506 Variant Also Negotiates
-507 Insufficient Storage (WebDAV)
-508 Loop Detected (WebDAV)
-510 Not Extended
-511 Network Authentication Required
+201 Created - A new resource was successfully created.
 
+202 Accepted - The request was accepted for processing, but processing
+has not finished yet.
 
+203 Non-Authoritative Information - The returned information has been
+modified by an intermediary.
 
+204 No Content - The request succeeded, but there is no response body.
 
+205 Reset Content - The client should reset its document or form.
 
-The most commonly used ones in REST APIs
+206 Partial Content - Only part of the requested resource is returned
+(used for downloads and streaming).
 
-200 OK
-201 Created
-202 Accepted
-204 No Content
+207 Multi-Status (WebDAV) - Contains multiple status results for
+different resources.
 
-301 Moved Permanently
-302 Found
-304 Not Modified
-307 Temporary Redirect
-308 Permanent Redirect
+208 Already Reported (WebDAV) - Prevents duplicate information in a
+Multi-Status response.
 
-400 Bad Request
-401 Unauthorized
-403 Forbidden
-404 Not Found
-405 Method Not Allowed
-409 Conflict
-410 Gone
-412 Precondition Failed
-415 Unsupported Media Type
-422 Unprocessable Entity
-429 Too Many Requests
+226 IM Used - The server fulfilled the request using delta encoding.
 
-500 Internal Server Error
-501 Not Implemented
-502 Bad Gateway
-503 Service Unavailable
-504 Gateway Timeout
+================================================== 3xx - REDIRECTION
+==================================================
+
+300 Multiple Choices - Multiple possible responses exist.
+
+301 Moved Permanently - The resource has permanently moved to a new URL.
+
+302 Found - Temporary redirect.
+
+303 See Other - Redirects the client to another URL using GET.
+
+304 Not Modified - Cached resource is still valid.
+
+305 Use Proxy - Deprecated.
+
+306 Switch Proxy - Reserved and unused.
+
+307 Temporary Redirect - Temporary redirect while preserving the HTTP
+method.
+
+308 Permanent Redirect - Permanent redirect while preserving the HTTP
+method.
+
+================================================== 4xx - CLIENT ERRORS
+==================================================
+
+400 Bad Request - Invalid request syntax or malformed data.
+
+401 Unauthorized - Authentication is required or credentials are
+invalid.
+
+402 Payment Required - Reserved for future use.
+
+403 Forbidden - The client is authenticated but lacks permission.
+
+404 Not Found - The requested resource does not exist.
+
+405 Method Not Allowed - The HTTP method is not supported for this
+endpoint.
+
+406 Not Acceptable - The server cannot produce the requested response
+format.
+
+407 Proxy Authentication Required - Authentication with a proxy server
+is required.
+
+408 Request Timeout - The client took too long to send the request.
+
+409 Conflict - The request conflicts with the current resource state.
+
+410 Gone - The resource existed previously but has been permanently
+removed.
+
+411 Length Required - A Content-Length header is required.
+
+412 Precondition Failed - A request precondition failed.
+
+413 Payload Too Large - The uploaded payload exceeds the allowed size.
+
+414 URI Too Long - The requested URL is too long.
+
+415 Unsupported Media Type - The Content-Type is not supported.
+
+416 Range Not Satisfiable - The requested byte range is invalid.
+
+417 Expectation Failed - The server cannot satisfy the Expect header.
+
+418 I’m a Teapot - An April Fools’ joke status code.
+
+421 Misdirected Request - The request was sent to the wrong server.
+
+422 Unprocessable Entity - The request syntax is correct, but validation
+failed.
+
+423 Locked (WebDAV) - The resource is locked.
+
+424 Failed Dependency (WebDAV) - The request depends on another failed
+request.
+
+425 Too Early - The server refuses to process an early replay.
+
+426 Upgrade Required - The client must upgrade its protocol.
+
+428 Precondition Required - The server requires conditional requests.
+
+429 Too Many Requests - Rate limit exceeded.
+
+431 Request Header Fields Too Large - Request headers are too large.
+
+451 Unavailable For Legal Reasons - Access is blocked due to legal
+restrictions.
+
+================================================== 5xx - SERVER ERRORS
+==================================================
+
+500 Internal Server Error - An unexpected server error occurred.
+
+501 Not Implemented - The requested functionality is not implemented.
+
+502 Bad Gateway - A gateway received an invalid response from an
+upstream server.
+
+503 Service Unavailable - The server is temporarily unavailable.
+
+504 Gateway Timeout - A gateway timed out waiting for an upstream
+server.
+
+505 HTTP Version Not Supported - The HTTP version is unsupported.
+
+506 Variant Also Negotiates - Server configuration error during content
+negotiation.
+
+507 Insufficient Storage - The server lacks sufficient storage.
+
+508 Loop Detected - Infinite processing loop detected.
+
+510 Not Extended - Additional request extensions are required.
+
+511 Network Authentication Required - Authentication is required to
+access the network.
+
+================================================== MOST COMMON STATUS
+CODES FOR REST APIs ==================================================
+
+200 OK 201 Created 204 No Content 400 Bad Request 401 Unauthorized 403
+Forbidden 404 Not Found 409 Conflict 415 Unsupported Media Type 422
+Unprocessable Entity 429 Too Many Requests 500 Internal Server Error 502
+Bad Gateway 503 Service Unavailable 504 Gateway Timeout
