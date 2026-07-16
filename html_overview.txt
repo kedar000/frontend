@@ -1,0 +1,360 @@
+ADVANCED HTML - QUICK REVISION
+
+============================================================
+
+1. SEMANTIC HTML
+    ============================================================
+
+Semantic HTML uses meaningful tags that describe the content instead of generic <div> elements. It improves readability, accessibility, and SEO.
+
+Important Tags:
+
+* <header> → Introductory content such as logo, title, navigation.
+* <nav> → Contains the main navigation links.
+* <main> → Holds the primary content of the page (only one per page).
+* <section> → Groups related content under a common topic.
+* <article> → Independent, self-contained content (blog, news, post).
+* <aside> → Sidebar or related information.
+* <footer> → Footer content like copyright or contact details.
+* <div> → Generic container used only for layout or styling.
+
+============================================================
+2. ACCESSIBILITY (ARIA)
+
+Accessibility (a11y) ensures websites are usable by everyone.
+
+Important Tags:
+
+* <label> → Describes a form field and links to an input.
+* <button> → Accessible clickable button.
+* <img> → Displays an image; should always include alt.
+
+Important ARIA Attributes:
+
+* aria-label → Gives an accessible name.
+* aria-labelledby → Uses another element as the label.
+* aria-describedby → Associates helper text.
+* aria-hidden → Hides element from screen readers.
+* aria-expanded → Indicates expanded/collapsed state.
+* aria-current → Marks the current item.
+* aria-live → Announces dynamic updates.
+* aria-invalid → Indicates invalid input.
+
+============================================================
+3. FORMS
+
+Forms collect user input and submit it to a server.
+
+Important Tags:
+
+* <form> → Container for form controls.
+* <label> → Describes an input field.
+* <input> → Accepts user input.
+* <textarea> → Multi-line text input.
+* <select> → Dropdown list.
+* <option> → Item inside a dropdown.
+* <button> → Performs form actions.
+
+Important Attributes:
+
+* action → URL where form is submitted.
+* method → HTTP method (GET/POST).
+* enctype → Encoding type for file uploads.
+* autocomplete → Enables browser autofill.
+* novalidate → Disables browser validation.
+* name → Field name sent to the server.
+
+Button Types:
+
+* submit → Submits the form.
+* button → Executes JavaScript.
+* reset → Resets all fields.
+
+============================================================
+4. INPUT TYPES
+
+Different input types provide better validation and user experience.
+
+Important Input Types:
+
+* text → Normal text.
+* password → Hidden text.
+* email → Email address.
+* number → Numeric values.
+* tel → Phone number.
+* url → Website URL.
+* search → Search field.
+* date → Date picker.
+* time → Time picker.
+* datetime-local → Date & time picker.
+* month → Month picker.
+* week → Week picker.
+* color → Color picker.
+* range → Slider.
+* checkbox → Multiple selections.
+* radio → Single selection.
+* file → File upload.
+* hidden → Invisible value.
+
+Useful Attributes:
+
+* required → Mandatory field.
+* min / max → Minimum & maximum values.
+* minlength / maxlength → Character limits.
+* pattern → Regex validation.
+* readonly → Read-only field.
+* disabled → Cannot interact.
+* autofocus → Focus on page load.
+* autocomplete → Browser suggestions.
+
+============================================================
+5. VALIDATION
+
+Validation checks if user input is correct.
+
+Types:
+
+* Client-side Validation → Browser validation.
+* Server-side Validation → Backend validation.
+
+Validation Attributes:
+
+* required
+* minlength
+* maxlength
+* min
+* max
+* step
+* pattern
+
+Validation API:
+
+* checkValidity() → Checks validity.
+* reportValidity() → Displays validation message.
+* setCustomValidity() → Custom error message.
+
+============================================================
+6. TABLES
+
+Tables display structured data.
+
+Important Tags:
+
+* <table> → Table container.
+* <thead> → Header rows.
+* <tbody> → Main data rows.
+* <tfoot> → Summary/footer rows.
+* <tr> → Table row.
+* <th> → Header cell.
+* <td> → Data cell.
+* <caption> → Table title.
+
+Useful Attributes:
+
+* colspan → Merge columns.
+* rowspan → Merge rows.
+* scope → Improves accessibility.
+
+============================================================
+7. AUDIO & VIDEO
+
+Used to embed multimedia.
+
+Important Tags:
+
+* <audio> → Audio player.
+* <video> → Video player.
+* <source> → Alternative media source.
+* <track> → Captions/subtitles.
+
+Important Attributes:
+
+* controls
+* autoplay
+* muted
+* loop
+* poster
+* preload
+
+============================================================
+8. SVG
+
+SVG is a scalable vector graphics format.
+
+Important Tags:
+
+* <svg> → SVG container.
+* <rect> → Rectangle.
+* <circle> → Circle.
+* <ellipse> → Ellipse.
+* <line> → Straight line.
+* <polygon> → Closed shape.
+* <polyline> → Open connected lines.
+* <path> → Complex custom shape.
+
+Best for:
+
+* Logos
+* Icons
+* Charts
+* Illustrations
+
+============================================================
+9. CANVAS
+
+Canvas provides a drawing area controlled by JavaScript.
+
+Important Tag:
+
+* <canvas> → Drawing surface.
+
+Common APIs:
+
+* getContext("2d")
+* fillRect()
+* stroke()
+* arc()
+* drawImage()
+* fillText()
+* clearRect()
+
+============================================================
+10. META TAGS
+
+Meta tags provide information about a webpage.
+
+Important Tags:
+
+* <meta> → Metadata.
+* <title> → Browser tab title.
+* <link> → External resources (favicon, CSS).
+
+Common Meta Tags:
+
+* charset
+* viewport
+* description
+* author
+* robots
+* theme-color
+
+============================================================
+11. SEO BASICS
+
+SEO improves search engine visibility.
+
+Important Tags:
+
+* <title> → Search result title.
+* <meta> → Description & metadata.
+* <h1> → Main page heading.
+* <h2>-<h6> → Content hierarchy.
+* <img> → Should include alt.
+* <a> → Internal and external links.
+
+============================================================
+12. RESPONSIVE IMAGES
+
+Serve different image sizes based on the device.
+
+Important Tags:
+
+* <img> → Displays image.
+* <picture> → Multiple image versions.
+* <source> → Alternative image source.
+
+Important Attributes:
+
+* src
+* srcset
+* sizes
+* alt
+
+============================================================
+13. LAZY LOADING IMAGES
+
+Loads images only when needed.
+
+Important Tag:
+
+* <img>
+
+Important Attribute:
+
+* loading="lazy"
+
+Do not lazy-load:
+
+* Hero image
+* Logo
+* Above-the-fold images
+
+============================================================
+14. LOCAL STORAGE
+
+Persistent browser storage.
+
+Methods:
+
+* setItem()
+* getItem()
+* removeItem()
+* clear()
+
+Stores key-value pairs as strings.
+
+============================================================
+15. SESSION STORAGE
+
+Temporary browser storage.
+
+Methods:
+
+* setItem()
+* getItem()
+* removeItem()
+* clear()
+
+Data is removed when the browser tab closes.
+
+============================================================
+16. COOKIES
+
+Small browser storage automatically sent with HTTP requests.
+
+Important Properties:
+
+* expires
+* max-age
+* path
+* Secure
+* HttpOnly
+* SameSite
+
+Common Uses:
+
+* Authentication
+* Sessions
+* Remember Me
+* Analytics
+
+============================================================
+MOST COMMON INTERVIEW QUESTIONS
+
+• Semantic HTML vs <div>
+• <section> vs <article>
+• localStorage vs sessionStorage vs Cookies
+• SVG vs Canvas
+• GET vs POST
+• Client-side vs Server-side Validation
+• Responsive Images vs CSS width
+• srcset vs <picture>
+• Lazy Loading
+• Meta Tags
+• ARIA
+• Why Accessibility is Important
+• Why use Semantic HTML
+• Why use type="email"
+• Why use HttpOnly Cookies
+• Why use Viewport Meta Tag
+• Why use alt text
