@@ -1,0 +1,233 @@
+=========================================================
+ANGULARJS (1.x) ROADMAP
+(For AngularJS → React Migration)
+=========================================================
+
+SECTION 1 — Introduction
+------------------------
+• What is AngularJS?
+• Features
+• MVC Architecture
+• SPA
+• Angular Module
+• ng-app
+• Project Structure
+• AngularJS vs React
+
+---------------------------------------------------------
+
+SECTION 2 — Expressions & Data Binding
+--------------------------------------
+• Angular Expressions
+• Interpolation
+• One-way Binding
+• Two-way Binding
+• ng-model
+• ng-bind
+
+---------------------------------------------------------
+
+SECTION 3 — Controllers & Scope
+--------------------------------
+Controllers
+• ng-controller
+• Controller Functions
+• ControllerAs
+
+Scope
+• $scope
+• $rootScope
+• Scope Hierarchy
+• Parent Scope
+• Child Scope
+• Isolated Scope
+• Scope Inheritance
+• Scope Inheritance
+
+---------------------------------------------------------
+
+SECTION 4 — Digest Cycle
+------------------------
+• Dirty Checking
+• Digest Cycle
+• $digest
+• $apply
+• $watch
+• Performance Impact
+
+---------------------------------------------------------
+
+SECTION 5 — Directives
+----------------------
+Built-in Directives
+• ng-if
+• ng-show
+• ng-hide
+• ng-repeat
+• ng-switch
+• ng-model
+• ng-bind
+• ng-click
+• ng-change
+• ng-class
+• ng-disabled
+• ng-style
+• ng-include
+
+Directive Internals
+• Directive Lifecycle
+• Compile Phase
+• Link Phase
+• Pre-Link
+• Post-Link
+
+Custom Directives
+• Creating Directives
+• template
+• templateUrl
+• link
+• compile
+• Isolated Scope
+
+---------------------------------------------------------
+
+SECTION 6 — Dependency Injection & Services
+-------------------------------------------
+Dependency Injection
+• Injector
+• Dependency Resolution
+• Dependency Annotation
+• Manual Injection
+• Automatic Injection
+
+Services
+• Service
+• Factory
+• Provider
+• Value
+• Constant
+
+Differences
+• Service vs Factory
+• Factory vs Provider
+• Value vs Constant
+
+---------------------------------------------------------
+
+SECTION 7 — Built-in Services & HTTP
+------------------------------------
+Built-in Services
+• $http
+• $q
+• $timeout
+• $interval
+• $location
+• $compile
+• $parse
+• $filter
+• $cacheFactory
+• $templateCache
+• $injector
+• $log
+
+HTTP
+• GET
+• POST
+• PUT
+• DELETE
+• Promise Handling
+• Error Handling
+• Interceptors
+
+---------------------------------------------------------
+
+SECTION 8 — Routing
+-------------------
+• ngRoute
+• ui-router
+• Route Configuration
+• Route Parameters
+• Nested Routes
+• Route Resolve
+
+---------------------------------------------------------
+
+SECTION 9 — Forms
+-----------------
+• ngForm
+• ngModel
+• Validation
+• Dirty / Pristine
+• Touched / Untouched
+• Valid / Invalid
+
+---------------------------------------------------------
+
+SECTION 10 — Components & Communication
+---------------------------------------
+Components
+• component()
+• bindings
+• Lifecycle Hooks
+
+Communication
+• Parent → Child
+• Child → Parent
+• Shared Services
+• $emit
+• $broadcast
+• $on
+
+---------------------------------------------------------
+
+SECTION 11 — Promises
+---------------------
+• $q
+• Promise
+• resolve
+• reject
+• finally
+• Promise Chaining
+• async API Flow
+
+---------------------------------------------------------
+
+SECTION 12 — Filters
+--------------------
+• Built-in Filters
+• Custom Filters
+
+---------------------------------------------------------
+
+SECTION 13 — Performance
+-------------------------
+• One-time Binding (::)
+• track by
+• Reducing Watchers
+• Digest Optimization
+
+---------------------------------------------------------
+
+SECTION 14 — AngularJS Internals
+--------------------------------
+• Bootstrapping
+• Template Compilation
+• Dependency Injection Flow
+• Digest Cycle Internals
+
+---------------------------------------------------------
+
+SECTION 15 — AngularJS → React Migration
+----------------------------------------
+• Controllers → Components
+• $scope → useState
+• Services → API Services
+• Factory → Utility Modules
+• Provider → Context API
+• ng-repeat → map()
+• ng-if → Conditional Rendering
+• ng-model → Controlled Components
+• $http → Axios/Fetch
+• $watch → useEffect
+• Routing Migration
+• Migration Strategy
