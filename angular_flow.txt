@@ -1,0 +1,80 @@
+=========================================================
+REAL FLOW OF AN ANGULARJS DIRECTIVE
+=========================================================
+
+HTML
+│
+▼
+<employee-card></employee-card>
+│
+▼
+Angular Bootstraps (ng-app)
+│
+▼
+Scans the DOM
+│
+▼
+Finds Matching Directive (employeeCard)
+│
+▼
+COMPILE PHASE
+│
+├── Read directive definition
+├── Read template / templateUrl
+├── Read directive attributes
+├── Modify template if compile() exists
+└── Prepare linking instructions
+│
+▼
+Create Scope
+│
+├── Inherited Scope
+├── Child Scope
+└── Isolated Scope (if configured)
+│
+▼
+LINK PHASE
+│
+├── Pre-Link (Parent prepares before children)
+│
+├── Link Child Directives
+│
+├── Child Post-Link
+│
+└── Parent Post-Link
+│
+      During Post-Link:
+      ├── Bind scope to template
+      ├── Replace {{ }} with scope values
+      ├── Create watchers
+      ├── Attach event listeners
+      ├── Initialize DOM behavior
+      └── Connect directive with the live DOM
+│
+▼
+Directive is now fully initialized
+│
+▼
+User Interacts (Click / Input / etc.)
+│
+▼
+$scope Changes
+│
+▼
+Digest Cycle Starts
+│
+▼
+Watchers Compare Old vs New Values
+│
+▼
+Any Changes?
+│
+├── No → Do Nothing
+│
+└── Yes
+      │
+      ▼
+      Update DOM
+      │
+      ▼
+      UI Reflects Latest Data
