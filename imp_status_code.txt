@@ -1,0 +1,308 @@
+=========================================
+COMMON HTTP STATUS CODES FOR FRONTEND
+=========================================
+
+-------------------------
+1xx - Informational
+-------------------------
+
+100 Continue
+- The server received the initial part of the request.
+- Rarely handled by frontend developers.
+
+101 Switching Protocols
+- The server agrees to switch protocols.
+- Commonly used for WebSocket connections.
+
+---------------------------------
+2xx - Success Responses
+---------------------------------
+
+200 OK
+Meaning:
+- Request completed successfully.
+
+Common Use Cases:
+- Fetch user profile
+- Get employee list
+- Login response
+- Search results
+
+Frontend Action:
+- Read and display response data.
+
+---------------------------------
+
+201 Created
+Meaning:
+- A new resource was successfully created.
+
+Common Use Cases:
+- Register user
+- Create employee
+- Place order
+- Add new product
+
+Frontend Action:
+- Show success message.
+- Update UI with new resource.
+
+---------------------------------
+
+204 No Content
+Meaning:
+- Request succeeded but there is no response body.
+
+Common Use Cases:
+- Delete resource
+- Logout
+- Update resource without returning data
+
+Frontend Action:
+- Update UI without expecting any data.
+
+---------------------------------
+3xx - Redirection
+---------------------------------
+
+301 Moved Permanently
+Meaning:
+- Resource has permanently moved to a new URL.
+
+Common Use Cases:
+- Website migration
+- SEO
+
+Frontend Action:
+- Usually handled automatically by browser.
+
+---------------------------------
+
+302 Found
+Meaning:
+- Temporary redirect.
+
+Common Use Cases:
+- Redirect after login
+- Redirect during maintenance
+
+Frontend Action:
+- Browser automatically navigates to the URL in the Location header.
+
+---------------------------------
+
+304 Not Modified
+Meaning:
+- Cached version is still valid.
+
+Common Use Cases:
+- Browser cache
+- Static assets
+- Images
+- CSS
+- API caching
+
+Frontend Action:
+- Browser loads cached data instead of downloading again.
+
+---------------------------------
+4xx - Client Errors
+---------------------------------
+
+400 Bad Request
+Meaning:
+- Frontend sent an invalid request.
+
+Common Reasons:
+- Missing fields
+- Invalid JSON
+- Wrong data type
+
+Frontend Action:
+- Show validation or request error.
+
+---------------------------------
+
+401 Unauthorized
+Meaning:
+- User is not authenticated.
+
+Common Reasons:
+- Missing JWT
+- Expired access token
+- Invalid token
+
+Frontend Action:
+- Redirect to login.
+- Refresh access token if available.
+
+---------------------------------
+
+403 Forbidden
+Meaning:
+- User is authenticated but doesn't have permission.
+
+Common Reasons:
+- Normal user accessing admin route
+- Missing required role
+
+Frontend Action:
+- Show "Access Denied" message.
+
+---------------------------------
+
+404 Not Found
+Meaning:
+- Requested resource doesn't exist.
+
+Common Reasons:
+- Invalid URL
+- Deleted resource
+- Wrong ID
+
+Frontend Action:
+- Show Not Found page or message.
+
+---------------------------------
+
+405 Method Not Allowed
+Meaning:
+- HTTP method is not supported.
+
+Common Reasons:
+- POST instead of GET
+- DELETE instead of PUT
+
+Frontend Action:
+- Verify API method being used.
+
+---------------------------------
+
+409 Conflict
+Meaning:
+- Request conflicts with existing data.
+
+Common Reasons:
+- Duplicate email
+- Duplicate username
+- Duplicate employee ID
+
+Frontend Action:
+- Show conflict or duplicate message.
+
+---------------------------------
+
+422 Unprocessable Content
+Meaning:
+- Request format is correct but validation failed.
+
+Common Reasons:
+- Weak password
+- Invalid email format
+- Invalid input values
+
+Frontend Action:
+- Display field validation errors.
+
+---------------------------------
+
+429 Too Many Requests
+Meaning:
+- Too many requests were sent.
+
+Common Reasons:
+- API rate limiting
+- Rapid search requests
+- Excessive login attempts
+
+Frontend Action:
+- Show retry message.
+- Respect Retry-After header if provided.
+- Use debounce/throttle to reduce requests.
+
+---------------------------------
+5xx - Server Errors
+---------------------------------
+
+500 Internal Server Error
+Meaning:
+- Unexpected server-side error.
+
+Common Reasons:
+- Backend exception
+- Database failure
+- Coding bug
+
+Frontend Action:
+- Show generic error message.
+- Allow user to retry.
+
+---------------------------------
+
+502 Bad Gateway
+Meaning:
+- Gateway or proxy received an invalid response from another server.
+
+Common Reasons:
+- API Gateway issue
+- NGINX issue
+- Microservice failure
+
+Frontend Action:
+- Inform user and allow retry.
+
+---------------------------------
+
+503 Service Unavailable
+Meaning:
+- Server is temporarily unavailable.
+
+Common Reasons:
+- Server maintenance
+- High traffic
+- Service restart
+
+Frontend Action:
+- Show maintenance message.
+- Retry after some time.
+
+---------------------------------
+
+504 Gateway Timeout
+Meaning:
+- Gateway waited too long for backend response.
+
+Common Reasons:
+- Slow backend
+- Database timeout
+- Network issue
+
+Frontend Action:
+- Show timeout message.
+- Allow user to retry.
+
+=========================================
+MOST IMPORTANT STATUS CODES TO MEMORIZE
+=========================================
+
+200  -> Success
+201  -> Resource Created
+204  -> Success (No Response Body)
+
+301  -> Permanent Redirect
+302  -> Temporary Redirect
+304  -> Use Cached Version
+
+400  -> Bad Request
+401  -> Unauthorized (Login Required)
+403  -> Forbidden (No Permission)
+404  -> Not Found
+405  -> Wrong HTTP Method
+409  -> Conflict (Duplicate Data)
+422  -> Validation Failed
+429  -> Too Many Requests
+
+500  -> Internal Server Error
+502  -> Bad Gateway
+503  -> Service Unavailable
+504  -> Gateway Timeout
