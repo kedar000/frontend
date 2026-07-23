@@ -231,3 +231,6 @@ SECTION 15 — AngularJS → React Migration
 • $watch → useEffect
 • Routing Migration
 • Migration Strategy
+
+
+http://www.simplygoodcode.com/2015/11/the-difference-between-service-provider-and-factory-in-angularjs/

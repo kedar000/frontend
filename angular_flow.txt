@@ -18,7 +18,7 @@ Finds Matching Directive (employeeCard)
 │
 ▼
 COMPILE PHASE
-│
+│     
 ├── Read directive definition
 ├── Read template / templateUrl
 ├── Read directive attributes
@@ -78,3 +78,14 @@ Any Changes?
       │
       ▼
       UI Reflects Latest Data
+
+
+
+
+
+
+
+
+
+
+
