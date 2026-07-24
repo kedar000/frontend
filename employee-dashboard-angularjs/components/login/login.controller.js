@@ -16,10 +16,23 @@ app.controller("LoginController", function (
         $scope.error = "";
         AuthService.login($scope.credentials)
             .then(function (response){
-                console.log(response.data)
+                AuthService.setCurrentUser(response.data.user)
+
+                console.log("User : "+ JSON.stringify(response.data.user))
+
+                localStorage.setItem(
+                    "accessToken" ,
+                    response.data.accessToken
+                );
+                localStorage.setItem(
+                    "refreshToken",
+                    response.data.refreshToken
+                )
+
+                $location.path("/")
             })
             .catch(function(error){
-                console.log(error);
+                $scope.error = error.data.message || "Login Failed"
 
             })
             .finally(function(){

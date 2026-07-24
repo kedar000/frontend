@@ -18,7 +18,26 @@
   <body>
     <!-- Routed Pages -->
 
-    <div ng-view></div>
+    <app-navbar ng-if="isAuthenticated()"></app-navbar>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 p-0" ng-if="isAuthenticated()">
+          <app-sidebar></app-sidebar>
+        </div>
+
+        <div
+          ng-class="{
+                'col-md-10': isAuthenticated(),
+                'col-12': !isAuthenticated()
+            }"
+        >
+          <div ng-view></div>
+        </div>
+      </div>
+    </div>
+
+    <app-footer ng-if="isAuthenticated()"></app-footer>
 
     <!-- AngularJS -->
 
@@ -37,6 +56,15 @@
 
     <!----Services-->
     <script src="services/auth.service.js"></script>
+    <script src="services/employee.service.js"></script>
+
+    <!----Interceptor-->
+    <script src="interceptors/auth.interceptor.js"></script>
+
+    <!----Directives-->
+    <script src="directives/navbar.directive.js"></script>
+    <script src="directives/sidebar.directive.js"></script>
+    <script src="directives/footer.directive.js"></script>
 
     <!-- Controllers -->
 
@@ -52,7 +80,6 @@
 
     <script src="components/not-found/404.controller.js"></script>
 
-
-    
+    <script src="components/navbar/navbar.controller.js"></script>
   </body>
 </html>

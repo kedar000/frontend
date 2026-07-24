@@ -1,3 +1,109 @@
-<div class = "container mt-5">
-    <h1>{{title}}</h1>
+<div class="container-fluid">
+  <!-- Welcome Card -->
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h2 class="mb-1">Welcome back,</h2>
+
+      <h3 class="text-primary">{{ user.firstName }} {{ user.lastName }}</h3>
+    </div>
+  </div>
+
+  <!-- Statistics -->
+
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h1 class="fw-bold">{{ totalEmployees }}</h1>
+
+          <p class="text-muted mb-0">Employees</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h1 class="fw-bold">{{ totalDepartments }}</h1>
+
+          <p class="text-muted mb-0">Departments</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h1 class="fw-bold">{{ averageAge }}</h1>
+
+          <p class="text-muted mb-0">Average Age</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tables -->
+
+  <div class="row">
+    <!-- Employees by Department -->
+
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h2 class="mb-4">Employees by Department</h2>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Department</th>
+
+                <th>Employees</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr ng-repeat="dept in departmentStats">
+                <td>{{ dept.department }}</td>
+
+                <td>{{ dept.count }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Employees -->
+
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h2 class="mb-4">Recent Employees</h2>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+
+                <th>Role</th>
+
+                <th>Department</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr ng-repeat="employee in recentEmployees">
+                <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+
+                <td>{{ employee.company.title }}</td>
+
+                <td>{{ employee.company.department }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
